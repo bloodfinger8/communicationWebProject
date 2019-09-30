@@ -11,7 +11,7 @@
             </div>
             <hr/>
             
-            <form class="form-horizontal" role="form" method="post" action="javascript:alert( 'success!' );">
+            <form name="writeForm" class="form-horizontal" role="form" method="post" action="/communicationWebProject/member/write.do">
 					
 					<div class="form-group" id="divName">
                 		<label for="inputName" class="col-lg-2 control-label">이름</label>

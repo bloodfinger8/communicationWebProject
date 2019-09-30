@@ -14,22 +14,21 @@ import member.dao.MemberDAO;
 
 public class LoginAction implements CommandProcess {
 	
-	
-	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		//데이터 얻기 
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		//DB 
+		//DB
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("pwd", pwd);
 		MemberDAO memberDAO = MemberDAO.getInstance();
 		MemberDTO memberDTO = memberDAO.login(map);
-		System.out.println("memberDTO = " + memberDTO + "입니다");
+		System.out.println("memberDTO = " + memberDTO);
 		//응답
 		String loginResult = null;
+		
 		if(memberDTO == null) {
 			loginResult = "fail";
 		}else {
@@ -38,12 +37,15 @@ public class LoginAction implements CommandProcess {
 			session.setAttribute("memName", memberDTO.getName());
 			session.setAttribute("memId", id);
 			session.setAttribute("memEmail", memberDTO.getEmail1() + "@" + memberDTO.getEmail2());
-			
+			loginResult = "ok";
 		}
 		request.setAttribute("loginResult",loginResult);
 		request.setAttribute("display", "/template/body.jsp");
 		
-		return "/main/main.jsp";
+		if(memberDTO != null) {
+			return "/member/loginOk.jsp";
+		}
+		return "/member/loginFail.jsp";
 		
 	}
 

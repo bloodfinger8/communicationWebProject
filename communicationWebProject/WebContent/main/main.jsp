@@ -13,6 +13,7 @@
 <script type="text/javascript" src="../js/member.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../bootstrap_js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 </head>
 <body>
 	 <div class="header">

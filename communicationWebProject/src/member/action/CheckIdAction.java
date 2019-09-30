@@ -13,18 +13,13 @@ public class CheckIdAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		String id = request.getParameter("id");
-		
 	    MemberDAO memberDAO = MemberDAO.getInstance();
 	    boolean exist = memberDAO.isExistId(id);
-	    System.out.println("**" + exist +","+ id);
 	    
 	    request.setAttribute("exist", exist);
 	    request.setAttribute("id", id);
-	    if(exist) {
-	    	return "/member/checkIdFail.jsp";
-	    }else {
-	    	return "/member/checkIdOk.jsp";
-	    }
+	    
+	    return "/member/checkId.jsp";
 	}
 
 }

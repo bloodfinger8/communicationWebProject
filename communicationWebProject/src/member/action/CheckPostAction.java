@@ -29,7 +29,7 @@ public class CheckPostAction implements CommandProcess {
 			map.put("roadname", roadname);
 			list = memberDAO.getZipcodeList(map);
 		}
-		System.out.println("list 는무엇일까? : " + list);
+		
 		request.setAttribute("list", list);
 		
 		return "/member/checkPost.jsp";

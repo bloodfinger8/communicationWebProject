@@ -37,7 +37,8 @@ function checkId(){ //id 중복 확인
 	if(sId==""){
 		alert("먼저 ID입력하세요");
 	}else{
-		window.open("/miniproject/member/checkId.do?id="+sId,
+		alert(sId);
+		window.open("/communicationWebProject/member/checkId.do?id="+sId,
 				"",
 				"width=500 height=300 left=250 top=200");
 	}
@@ -54,15 +55,15 @@ function checkPost(){ //우편주소 확인
 }
 
 function checkPostClose(zipcode,address){
-//	opener.document.getElementById('daum_zipcode').value = zipcode;
-//	opener.document.getElementById('daum_addr1').value = address;
-//	window.close();
-//	opener.document.getElementById('daum_addr2').focus();
-	
-	opener.document.forms[0].zipcode.value = zipcode;
-	opener.document.forms[0].addr1.value = address;
+	opener.document.getElementById('daum_zipcode').value = zipcode;
+	opener.document.getElementById('daum_addr1').value = address;
 	window.close();
-	opener.document.forms[0].addr2.focus();
+	opener.document.getElementById('daum_addr2').focus();
+//	alert("ff");
+//	opener.document.forms[0].zipcode.value = zipcode;
+//	opener.document.forms[0].addr1.value = address;
+//	window.close();
+//	opener.document.forms[0].addr2.focus();
 }
 
 function checkLogin() { //유효성 검사 

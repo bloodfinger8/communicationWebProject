@@ -31,7 +31,7 @@
 	  				로그인</button></li>
 					<li class="nav-item"><a class="nav-link" href="/communicationWebProject/member/writeForm.do">회원가입</a></li>
 				</c:if>
-				<c:if test="${memId != null}">
+				<c:if test="${memId != null  }">
 					<jsp:include page="../member/loginOk.jsp"/>
 				</c:if>
 				
@@ -53,10 +53,25 @@
       <div class="modal-body" style="width: 100%; height: 400px; margin: 0; padding: 0;">
    	 	<jsp:include page="../member/loginForm.jsp"/>
       </div>
-      <div class="modal-footer">
-        <button type="button" name="Login" id="Login" class="btn btn-primary" data-dismiss="modal" onclick="checkLogin()" >Login</button>
-        <button type="reset"  name="Login" id="Login" class="btn btn-secondary">취소 </button>
-      </div> 
+      <!-- <div class="modal-footer">
+      </div>  -->
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+ 	if($.cookie('id') == "undefined"){
+		alert($.cookie('id'));
+	} 
+});
+
+$('.close').click(function(){ //종료버튼을 눌렀을때
+	$('#id').val('');
+	$('#pwd').val('');
+	$('#idDiv').empty();
+	$('#pwdDiv').empty();
+	$("input:checkbox[name='autoLogin']").prop("checked", false);
+});
+
+</script>
