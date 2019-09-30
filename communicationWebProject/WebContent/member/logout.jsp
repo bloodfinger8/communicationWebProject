@@ -3,7 +3,6 @@
     
 <script type="text/javascript">
 window.onload=function(){
-	alert("로그아웃");
 	location.href="/communicationWebProject/main/main.do";
 }
 </script>

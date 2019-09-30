@@ -5,15 +5,22 @@ body{
   }
   .header{
     margin:0px;
-    padding:20px;
+    padding:0px;
     height:50px;
     border-bottom:1px solid black;
     text-align:center;
     font-size:30px;
     background:#2C3E50;
-    color:white;
+    /* color:white */;
+    font-size: 16px;
    /*  position: sticky;  */
     top: 0px;
+  }
+  .content{
+    margin:50px;
+    padding:50px;
+    height:auto;
+    
   }
   .fixed{
   	position: sticky;
@@ -21,6 +28,8 @@ body{
   .header-title{
  	margin:0px;
   	margin-top: -10px;
+  	height:50px;
+  	
   }
   .jumbotron{
   	background-image: url('../image/jumbotronBackground.jpg');
@@ -29,11 +38,7 @@ body{
   	color: white;
   	 
   }
-  .content{
-    margin:0px;
-    padding:5px;
-    height:1000px;
-  }
+  
   .tail{
   	background-color:#2C3E50;
   	color:#FFFFFF;

@@ -47,7 +47,7 @@ public class ModifyAction implements CommandProcess {
 		
 		request.setAttribute("display","/member/modify.jsp");
 		
-		return "/main/index.jsp";
+		return "/main/main.jsp";
 		
 		
 	}

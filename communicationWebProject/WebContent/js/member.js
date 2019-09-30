@@ -50,7 +50,7 @@ function checkGender(){
 
 
 function checkPost(){ //우편주소 확인
-	window.open("/miniproject/member/checkPost.jsp","","width=500 height=500 scrollbars=yes "); //크롬은 스크롤이 있지만 익스플로러는 없다.
+	window.open("/communicationWebProject/member/checkPost.jsp","","width=500 height=500 scrollbars=yes "); //크롬은 스크롤이 있지만 익스플로러는 없다.
 }
 
 function checkPostClose(zipcode,address){

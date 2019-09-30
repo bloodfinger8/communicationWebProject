@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 
 
-	 <div class="jumbotron">
-	 	<h1 class="text-center">안녕하세요</h1>
-	 	<p class="text-center">원하는 모임이 있으신가요?</p>
-	 	<p class="text-center"><a class="btn btn-primary btn-lg" href="#" role="button">ds</a></p>
-	 </div>
+<div class="jumbotron">
+	<h1 class="text-center">안녕하세요</h1>
+	<p class="text-center">원하는 모임이 있으신가요?</p>
+	<p class="text-center"><a class="btn btn-primary btn-lg" href="#" role="button">ds</a></p>
+</div>
 	 
 	 <!-- Add Captions to Slides -->
 <div class="bd-example">

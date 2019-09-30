@@ -13,6 +13,8 @@ public class LogoutAction implements CommandProcess {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		return "/main/main.jsp";
+		request.setAttribute("display", "/template/body.jsp");
+		
+		return "/member/logout.jsp";
 	}
 }

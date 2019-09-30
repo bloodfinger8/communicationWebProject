@@ -14,17 +14,9 @@
       <input type="text" name="id" id="id" placeholder="ID">
       <input type="password" name="pwd" id="pwd" placeholder="password">
      
-      <div class="modal-checker" style="text-align:right">
-        <input type="button" name="Login" id="Login" value="Login" onclick="checkLogin()">
-        <input type="button" name="closed" id="closed" value="closed">
-      </div>
     </form>
   </body>
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="../js/member.js"></script>
-  <script type="text/javascript">
-  $('#closed').click(function(){
-	  window.parent.closeModal();
-  });
-  </script>
+  
 </html>

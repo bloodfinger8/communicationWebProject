@@ -44,7 +44,7 @@ public class WriteAction implements CommandProcess {
 		request.setAttribute("su", su+"");
 		
 		request.setAttribute("display","/member/write.jsp" );
-		return "/main/index.jsp";
+		return "/main/main.jsp";
 	}
 
 }

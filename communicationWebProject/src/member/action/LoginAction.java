@@ -18,8 +18,6 @@ public class LoginAction implements CommandProcess {
 	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		response.setHeader("P3P","CP='CAO PSA CONi OTR OUR DEM ONL'");
-		
 		//데이터 얻기 
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
@@ -43,6 +41,7 @@ public class LoginAction implements CommandProcess {
 			
 		}
 		request.setAttribute("loginResult",loginResult);
+		request.setAttribute("display", "/template/body.jsp");
 		
 		return "/main/main.jsp";
 		

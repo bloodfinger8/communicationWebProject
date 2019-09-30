@@ -25,7 +25,7 @@ public class ModifyFormAction implements CommandProcess {
 		request.setAttribute("memberDTO", memberDTO);
 		request.setAttribute("display","/member/modifyForm.jsp");
 		
-		return "/main/index.jsp";
+		return "/main/main.jsp";
 	}
 
 }
