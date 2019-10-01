@@ -22,7 +22,7 @@
 						</c:if>
 					<li class="nav-item"><a class="nav-link" href="/miniproject/imageboard/imageboardList.do?pg=1">이미지게시판</a></li>
 				</c:if>
-				<li class="nav-item"><a class="nav-link" href="/miniproject/board/boardList.do?pg=1">게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/communicationWebProject/board/boardList.do?pg=1">게시판</a></li>
 				
 			</ul>
 			<ul class="navbar-nav my-2 my-lg-0">
@@ -31,11 +31,11 @@
 	  				로그인</button></li>
 					<li class="nav-item"><a class="nav-link" href="/communicationWebProject/member/writeForm.do">회원가입</a></li>
 				</c:if>
-				<c:if test="${memId != null  }">
+				<c:if test="${memId != null }">
 					<jsp:include page="../member/loginOk.jsp"/>
 				</c:if>
-				
 			</ul>
+			<input type="hidden" id="jqueryCookie" value="">
 		</div>
 	</nav>
 </div>
@@ -61,9 +61,9 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
- 	if($.cookie('id') == "undefined"){
-		alert($.cookie('id'));
-	} 
+ 	/* if($.cookie('id') != "undefined"){
+		$('.jqueryCookie').val('in');
+	} */ 
 });
 
 $('.close').click(function(){ //종료버튼을 눌렀을때

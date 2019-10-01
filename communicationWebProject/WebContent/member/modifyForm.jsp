@@ -1,8 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<div class="container"><!-- 좌우측의 공간 확보 -->
+            <!-- 헤더 들어가는 부분 -->
+            <div class="row">
+                <p></p>
+                <div class="col-md-6">
+                    <h1>회원정보 </h1>
+                </div>
+            </div>
+            <br>
 <form name="modifyForm" method="post" action="/communicationWebProject/member/modify.do">
-		<table border="1" cellspacing="0" cellpadding="5">
+
+		<table class="table">
 			<tr>
 				<th width="80">이름</th>
 				<td width="320"><input type="text" name="name" value="${requestScope.memberDTO.name}"></td>
@@ -63,13 +73,13 @@
  
 			<tr>
 				<th colspan="2" align="center">
-				<input type="button" value="회원수정" onclick="checkModify()"> 
-				<input type="reset" value="다시작성">
+				<button type="button" class="btn btn-success" onclick="checkModify()">회원수정</button>
+				<button type="reset" class="btn btn-secondary">다시작성</button>
 				</th>
 			</tr>
 		</table>
 	</form>
-
+</div>
 	<script src="../js/member.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	window.onload=function(){

@@ -31,7 +31,6 @@ $(document).ready(function(){
 		
 		var id = $('#id').val();
 		var pwd = $('#pwd').val();
-		alert($('#loginForm').serialize());
 		if(id == '')
 			$('#idDiv').text('아이디 입력하세요').css('color','red').css('font-size','9pt');
 		else if(pwd == '')
@@ -55,7 +54,8 @@ $(document).ready(function(){
 						if($('#autoLogin').val() == '1'){ //체크박스가 체크 되었다면 쿠키 생성
 							$.cookie('id', 'autoLogin'); 
 						}
-						alert($.cookie('id'));
+						//alert($.cookie('id'));
+						
 						location.reload();
 					}
 				}

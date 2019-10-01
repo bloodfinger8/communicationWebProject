@@ -14,6 +14,7 @@
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../bootstrap_js/bootstrap.js"></script>
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script src="../js/board.js" type="text/javascript"> </script>
 </head>
 <body>
 	 <div class="header">

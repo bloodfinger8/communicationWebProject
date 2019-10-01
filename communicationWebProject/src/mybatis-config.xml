@@ -6,6 +6,8 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="member.bean.MemberDTO" alias="member"/>
+  		<typeAlias type="board.bean.BoardDTO" alias="board"/>
+  		<typeAlias type="boardreply.bean.BoardReplyDTO" alias="boardreply"/>
   	</typeAliases>
   	
   	<environments default="development">
@@ -24,5 +26,7 @@
   
   	<mappers>
   		<mapper resource="member/dao/memberMapper.xml"/>
+  		<mapper resource="board/dao/boardMapper.xml"/>
+  		<mapper resource="boardreply/dao/boardreplyMapper.xml"/>
   	</mappers>
   </configuration>
