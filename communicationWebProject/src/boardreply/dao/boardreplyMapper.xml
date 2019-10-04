@@ -9,4 +9,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into boardreply values(seq_boardreply.nextval,#{pseq},#{id},#{content},sysdate)
 </insert>
 
+<select id="writeAll" parameterType="Integer" resultType="boardreply">
+	select * from boardreply where pseq = #{pseq} order by seq
+</select>
+
+<select id="getTime" resultType="String">
+	SELECT to_char(logtime,'YYYY.MM.DD HH24.MI.SS') as logtime  FROM (SELECT * FROM boardreply ORDER BY logtime DESC) WHERE ROWNUM = 1
+</select>
+
+<update id="boardreplyModify" parameterType="java.util.Map">
+	update boardreply set content=#{modifyText},logtime=sysdate where seq=#{seq_trans}
+</update>
+
+<delete id="boardreplyDelete" parameterType="Integer">
+	delete from boardreply where seq = ${seq_trans}
+</delete>
+
 </mapper>

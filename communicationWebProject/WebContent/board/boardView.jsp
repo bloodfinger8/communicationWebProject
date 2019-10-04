@@ -34,7 +34,7 @@ pre {
 				<td colspan="3" height="50" valign="top">
 				<textarea rows="3" cols="50" id="content" name="content"></textarea>
 				<div class="submit_btn">
-				<button type="button" id="regist" class="btn btn-outline-secondary btn-lg" onclick="checkboardreply()">등록</button>
+				<button type="button" id="regist" class="btn btn-outline-secondary btn-lg regist">등록</button>
 				</div>
 				</td>
 			</tr>
@@ -49,10 +49,30 @@ pre {
 				</td>
 			</tr>
 	</table>
-	<div id="registDiv"></div>
+	<div id="registDiv">
+	<c:forEach items="${list }" var="list" varStatus="i">
+		<div style="border:1px solid blue;">
+		${list.id} <div id="divContent_modifyReply${i.count}">${list.logtime} <br>
+		${list.content}</div>
+		<c:if test="${memId == list.id}">
+			<input type="button" class="modifyReply" name="${list.seq}" id="modifyReply${i.count}" value="수정">
+			<input type="button" class="deleteReply" name="${list.seq}" id="deleteReply${i.count}" value="삭제">
+			<div class="modifyReply${i.count}"></div>
+		</c:if>
+		</div>
+	</c:forEach>
+	<div style='border:1px solid red;' id="angel">
+	
+	</div>
+	</div>
+	
 	<input type="hidden" name="pseq" value="${boardDTO.seq}">
 	<input type="hidden" name="id" value="${boardDTO.id}">
+	<input type="hidden" name="logId" value="${memId}">
+	<%-- <input type="hidden" name="seletedId" value="${list.id}"> --%>
 	<input type="hidden" name="pg" value="${pg}">
+	<input type="hidden" name="seq_trans" id="seq_trans">
+	<input type="hidden" name="list" id="list" value="${list}">
 </c:if>
 </form>
 
@@ -68,17 +88,78 @@ function checkboardreply(){
 </script>
 
 <script>
-$("#regist").click(function(){
+$(document).on("click", ".regist", function(){
 	$.ajax({
 		type : 'post',
 		url : '/communicationWebProject/boardreply/boardreplyWrite.do',
 		data : $('#boardViewForm').serialize(),
-		dataType : 'text',
+		dataType : 'html',
 		success : function(data){
-			$('#registDiv').append('<div style="border:1px solid red;" >ggg</div>'); 
+			//var result = "<div style='border:1px solid blue'>" + data.trim()+ "</div>";
+			alert(data.trim());
+			$("#angel").append(data.trim());
+		},
+		error : function(){
+			alert('실패');
 		}
 	});
-	
 	 
 });
+$(document).ready(function() {  
+
+	$('.modifyReply').on('click',function(){
+		var btnId = $(this).attr('id');
+		var seq = $(this).attr('name');
+		var divContent = $('#divContent_'+btnId);
+		
+		if($('.modifyText').length == 0){
+		texthtml = '<input type="text" class="modifyText" name="modifyText"> <input type="button" class=modify2 value=수정3>';
+		$('.'+btnId).append(texthtml);
+		}
+		$('.'+btnId).show();
+		$('#seq_trans').val(seq);
+	
+		
+		$('.modify2').on('click',function(){
+			$.ajax({
+				type : 'post',
+				url : '/communicationWebProject/boardreply/boardreplyModify.do',
+				data : $('#boardViewForm').serialize(),
+				dataType : 'html',
+				success : function(data){
+					//alert(data.trim());
+					$('.modifyText').val(data);
+					divContent.html(data.trim());
+					$('.'+btnId).hide();
+					$('.modifyText').val('');
+				},
+				error : function(){
+					alert('수정 실패');
+				}
+			});
+		});
+	});
+	
+	$('.deleteReply').on('click',function(){
+		var btnId = $(this).attr('id');
+		var seq = $(this).attr('name');
+		$('#seq_trans').val(seq);
+		
+		jQuery.ajaxSettings.traditional = true;
+		
+		$.ajax({
+			type : 'post', 
+			url : '/communicationWebProject/boardreply/boardreplyDelete.do',
+			data :   $('#boardViewForm').serialize(),
+			success : function(){
+				alert('삭제 성공');
+			},
+			error : function(){
+				alert('삭제 실패');
+			}
+		});
+	});
+	
+});
 </script>
+

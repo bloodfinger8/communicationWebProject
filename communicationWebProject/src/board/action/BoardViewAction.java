@@ -1,5 +1,7 @@
 package board.action;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +11,8 @@ import com.control.CommandProcess;
 
 import board.bean.BoardDTO;
 import board.dao.BoardDAO;
+import boardreply.bean.BoardReplyDTO;
+import boardreply.dao.BoardReplyDAO;
 
 public class BoardViewAction implements CommandProcess {
 
@@ -36,7 +40,12 @@ public class BoardViewAction implements CommandProcess {
 		}
 		// 증가시키고 조회수 값을 가져온다
 		BoardDTO boardDTO = boardDAO.getBoard(seq);
+		
+		//뷰에 대한 댓글
+		BoardReplyDAO boardreplyDAO = BoardReplyDAO.getInstance();
+		List<BoardReplyDTO> list =  boardreplyDAO.writeAll(seq);
 
+		request.setAttribute("list", list);
 		request.setAttribute("pg", pg);
 		request.setAttribute("boardDTO", boardDTO);
 
