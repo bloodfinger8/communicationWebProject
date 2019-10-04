@@ -7,8 +7,8 @@ function checkBoard(){
 		alert("제목을 입력하시오");
 		document.getElementById("content").focus();
 	}
-	else if (document.getElementById("content").value == ""){
-		alert("비밀번호 입력하시오");
+	else if (document.getElementById("summernote").value == ""){
+		alert("내용을 입력하시오");
 	}
 	else {
 		document.boardWriteForm.submit();

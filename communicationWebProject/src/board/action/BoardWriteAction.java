@@ -15,7 +15,7 @@ public class BoardWriteAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		//데이터
 		String subject = request.getParameter("subject");
-		String content = request.getParameter("content");
+		String content = request.getParameter("summernote");
 				
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("memId");
