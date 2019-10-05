@@ -25,4 +25,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	delete from boardreply where seq = ${seq_trans}
 </delete>
 
+<select id="checkboardreply" parameterType="Integer" resultType="Integer">
+	select count(*) from boardreply where pseq = ${seq}
+</select>
+<delete id="withboardreplyDelete" parameterType="Integer">
+	delete from boardreply where pseq = ${seq}
+</delete>
+
+<select id="getAllboardreply" parameterType="Integer" resultType="boardreply">
+	select * from boardreply where pseq = ${pseq} order by seq
+</select>
+
 </mapper>

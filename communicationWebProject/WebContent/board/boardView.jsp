@@ -50,20 +50,21 @@ pre {
 			</tr>
 	</table>
 	<div id="registDiv">
-	<c:forEach items="${list }" var="list" varStatus="i">
-		<div style="border:1px solid blue;">
-		${list.id} <div id="divContent_modifyReply${i.count}">${list.logtime} <br>
-		${list.content}</div>
-		<c:if test="${memId == list.id}">
-			<input type="button" class="modifyReply" name="${list.seq}" id="modifyReply${i.count}" value="수정">
-			<input type="button" class="deleteReply" name="${list.seq}" id="deleteReply${i.count}" value="삭제">
-			<div class="modifyReply${i.count}"></div>
-		</c:if>
+		<div id="data_boardreply">
+			<c:forEach items="${list }" var="list" varStatus="i">
+				<div style="border:1px solid blue;">
+				${list.id} <div id="divContent_modifyReply${i.count}">${list.logtime} <br>
+				${list.content}</div>
+				<c:if test="${memId == list.id}">
+					<input type="button" class="modifyReply" name="${list.seq}" id="modifyReply${i.count}" value="수정">
+					<input type="button" class="deleteReply" name="${list.seq}" id="deleteReply${i.count}" value="삭제">
+					<div class="modifyReply${i.count}"></div>
+				</c:if>
+				</div>
+			</c:forEach>
 		</div>
-	</c:forEach>
-	<div style='border:1px solid red;' id="angel">
-	
-	</div>
+		<!-- 내용이 추가 되는 부분 -->
+		<div style='border:1px solid red;' id="angel"></div>
 	</div>
 	
 	<input type="hidden" name="pseq" value="${boardDTO.seq}">
@@ -96,6 +97,7 @@ $(document).on("click", ".regist", function(){
 		dataType : 'html',
 		success : function(data){
 			//var result = "<div style='border:1px solid blue'>" + data.trim()+ "</div>";
+			$('#data_boardreply').empty();
 			alert(data.trim());
 			$("#angel").append(data.trim());
 		},
@@ -105,6 +107,7 @@ $(document).on("click", ".regist", function(){
 	});
 	 
 });
+
 $(document).ready(function() {  
 
 	$('.modifyReply').on('click',function(){

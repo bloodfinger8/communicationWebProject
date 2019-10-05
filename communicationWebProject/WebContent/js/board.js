@@ -5,13 +5,25 @@
 function checkBoard(){
 	if (document.getElementById("subject").value == ""){ 
 		alert("제목을 입력하시오");
-		document.getElementById("content").focus();
+		document.getElementById("summernote").focus();
 	}
 	else if (document.getElementById("summernote").value == ""){
 		alert("내용을 입력하시오");
 	}
 	else {
 		document.boardWriteForm.submit();
+	}
+}
+function checkBoard2(){
+	if (document.getElementById("subject").value == ""){ 
+		alert("제목을 입력하시오2");
+		document.getElementById("summernote").focus();
+	}
+	else if (document.getElementById("summernote").value == ""){
+		alert("내용을 입력하시오2");
+	}
+	else {
+		document.boardModifyForm.submit();
 	}
 }
 

@@ -143,6 +143,21 @@ public class BoardDAO {
 		sqlSession.close();
 		return su;
 	}
+
+	public void replyUp(int pseq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.update("boardSQL.replyUp",pseq);
+		sqlSession.commit();
+		sqlSession.close();
+		
+	}
+
+	public void replyDown(int pseq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.update("boardSQL.replyDown",pseq);
+		sqlSession.commit();
+		sqlSession.close();
+	}
 	
 	
 	

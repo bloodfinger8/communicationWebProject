@@ -35,6 +35,7 @@ public class BoardListAction implements CommandProcess {
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		List<BoardDTO> list = boardDAO.writeAll(map); //모든 게시물 출력
 		
+		
 		//페이징처리
 		BoardPaging boardPaging = new BoardPaging();
 		int su = boardDAO.getTotalA(); //총 글수
@@ -56,6 +57,8 @@ public class BoardListAction implements CommandProcess {
 		request.setAttribute("boardPaging", boardPaging);
 		request.setAttribute("pg", pg);
 		request.setAttribute("memId", memId);
+		
+		
 		
 		request.setAttribute("display","/board/boardList.jsp");
 		 

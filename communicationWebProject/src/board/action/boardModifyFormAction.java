@@ -8,7 +8,8 @@ import com.control.CommandProcess;
 import board.bean.BoardDTO;
 import board.dao.BoardDAO;
 
-public class boardModifyForm implements CommandProcess {
+public class BoardModifyFormAction implements CommandProcess {
+
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		int pg = Integer.parseInt(request.getParameter("pg"));
@@ -23,7 +24,8 @@ public class boardModifyForm implements CommandProcess {
 		request.setAttribute("seq", seq);
 		request.setAttribute("boardDTO", boardDTO);
 		
-		request.setAttribute("display","/board/boardModifyForm.jsp");
+		request.setAttribute("display" , "/board/boardModifyForm.jsp");
+		
 		return "/main/main.jsp";
 	}
 

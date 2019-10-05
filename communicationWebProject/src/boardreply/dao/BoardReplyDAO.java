@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import board.bean.BoardDTO;
 import boardreply.bean.BoardReplyDTO;
 
 
@@ -74,12 +75,30 @@ public class BoardReplyDAO {
 		sqlSession.commit();
 		sqlSession.close();
 	}
+
+	public int checkboardreply(int seq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int su = sqlSession.selectOne("boardreplySQL.checkboardreply", seq);
+		sqlSession.close();
+		
+		return su;
+	}
 	
-	
-	
-	
-	
-	
-	
+	//게시글에 달린 댓글들 삭제
+	public void withboardreplyDelete(int seq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.delete("boardreplySQL.withboardreplyDelete", seq);
+		sqlSession.commit();
+		sqlSession.close();
+		
+	}
+
+	public List<BoardReplyDTO> getAllboardreply(int pseq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<BoardReplyDTO> list = sqlSession.selectList("boardreplySQL.getAllboardreply",pseq);
+		sqlSession.close();
+		
+		return list;
+	}
 
 }

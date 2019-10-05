@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.control.CommandProcess;
 
+import board.dao.BoardDAO;
 import boardreply.bean.BoardReplyDTO;
 import boardreply.dao.BoardReplyDAO;
 
@@ -35,15 +36,25 @@ public class BoardReplyWriteAction implements CommandProcess {
 		
 		String logTime = boardreplyDAO.getTime();
 		
+		//모든 댓글의 정보를 가져와 뿌려준다
+		List<BoardReplyDTO> list = boardreplyDAO.getAllboardreply(pseq);
+		
+		
+		//원글의 reply 어트리뷰트 증가
+		BoardDAO boarDAO = BoardDAO.getInstance();
+		boarDAO.replyUp(pseq);
+		
+		
 		//데이터 보내보리자
 		
-		request.setAttribute("logTime",logTime);
-		request.setAttribute("id",id);
+		request.setAttribute("list", list);
+		//request.setAttribute("logTime",logTime);
+		//request.setAttribute("id",id);
 		request.setAttribute("logId",logId);
 		//request.setAttribute("seletedId",seletedId);
-		request.setAttribute("content",content);
-		request.setAttribute("pseq",pseq);
-		request.setAttribute("pg",pg);
+		//request.setAttribute("content",content);
+		//request.setAttribute("pseq",pseq);
+		//request.setAttribute("pg",pg);
 		 
 		return "/boardreply/boardreplyWrite.jsp";
 	}

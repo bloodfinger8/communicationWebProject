@@ -93,4 +93,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 where ${searchOption} like '%'||#{keyword}||'%'
 	</if>
 	</select>
+	
+	<update id="replyUp" parameterType="Integer">
+		update board set reply=reply+1 where seq = #{pseq}
+	</update>
+	<update id="replyDown" parameterType="Integer">
+		update board set reply=reply-1 where seq = #{pseq}
+	</update>
+	
 </mapper>
