@@ -90,60 +90,65 @@ function checkboardreply(){
 
 <script>
 $(document).on("click", ".regist", function(){
-	$.ajax({
-		type : 'post',
-		url : '/communicationWebProject/boardreply/boardreplyWrite.do',
-		data : $('#boardViewForm').serialize(),
-		dataType : 'html',
-		success : function(data){
-			//var result = "<div style='border:1px solid blue'>" + data.trim()+ "</div>";
-			$('#data_boardreply').empty();
-			alert(data.trim());
-			$("#angel").append(data.trim());
-		},
-		error : function(){
-			alert('실패');
-		}
-	});
-	 
+	if($('#content').val() == ''){
+		alert('댓글을 입력하세요');
+	}else{
+		$.ajax({
+			type : 'post',
+			url : '/communicationWebProject/boardreply/boardreplyWrite.do',
+			data : $('#boardViewForm').serialize(),
+			dataType : 'html',
+			success : function(data){
+				//var result = "<div style='border:1px solid blue'>" + data.trim()+ "</div>";
+				$('#data_boardreply').empty();
+				$("#data_boardreply").append(data.trim());
+				$('#content').val('');
+			},
+			error : function(){
+				alert('실패');
+			}
+		});
+	}
 });
 
 $(document).ready(function() {  
-
-	$('.modifyReply').on('click',function(){
+	$(document).on('click','.modifyReply',function(){
+		
 		var btnId = $(this).attr('id');
 		var seq = $(this).attr('name');
 		var divContent = $('#divContent_'+btnId);
 		
 		if($('.modifyText').length == 0){
-		texthtml = '<input type="text" class="modifyText" name="modifyText"> <input type="button" class=modify2 value=수정3>';
-		$('.'+btnId).append(texthtml);
+			texthtml = '<input type="text" class="modifyText" name="modifyText"> <input type="button" class=modify2 value=수정3>';
+			$('.'+btnId).append(texthtml);
 		}
 		$('.'+btnId).show();
 		$('#seq_trans').val(seq);
-	
 		
-		$('.modify2').on('click',function(){
-			$.ajax({
-				type : 'post',
-				url : '/communicationWebProject/boardreply/boardreplyModify.do',
-				data : $('#boardViewForm').serialize(),
-				dataType : 'html',
-				success : function(data){
-					//alert(data.trim());
-					$('.modifyText').val(data);
-					divContent.html(data.trim());
-					$('.'+btnId).hide();
-					$('.modifyText').val('');
-				},
-				error : function(){
-					alert('수정 실패');
-				}
-			});
+		$(document).on('click','.modify2',function(){
+			if($('.modifyText').val() == ''){
+				alert('수정할 내용을 입력하세요');
+			}else{
+				$.ajax({
+					type : 'post',
+					url : '/communicationWebProject/boardreply/boardreplyModify.do',
+					data : $('#boardViewForm').serialize(),
+					dataType : 'html',
+					success : function(data){
+						//alert(data.trim());
+						$('.modifyText').val(data);
+						divContent.html(data.trim());
+						$('.'+btnId).hide();
+						$('.modifyText').val('');
+					},
+					error : function(){
+						alert('수정 실패');
+					}
+				});
+			}
 		});
 	});
-	
-	$('.deleteReply').on('click',function(){
+	$(document).on('click','.deleteReply',function(){
 		var btnId = $(this).attr('id');
 		var seq = $(this).attr('name');
 		$('#seq_trans').val(seq);
@@ -154,8 +159,11 @@ $(document).ready(function() {
 			type : 'post', 
 			url : '/communicationWebProject/boardreply/boardreplyDelete.do',
 			data :   $('#boardViewForm').serialize(),
-			success : function(){
-				alert('삭제 성공');
+			dataType : 'html',
+			success : function(data){
+				$('#data_boardreply').empty();
+				alert(data.trim());
+				$("#data_boardreply").append(data.trim());
 			},
 			error : function(){
 				alert('삭제 실패');

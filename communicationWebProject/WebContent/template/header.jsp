@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <div class="header-title">
-	<h3>디자인ing</h3>
+	<h3>모임을 갖자</h3>
 </div>
 <div class="header-menubar">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="/communicationWebProject/main/main.do">Navbar</a>
+		<a class="navbar-brand" href="/communicationWebProject/main/main.do">HOME</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -20,9 +20,10 @@
 						<c:if test="${memId == 'admin'}">
 							<li class="nav-item"><a class="nav-link" href="/miniproject/imageboard/imageboardWriteForm.do">이미지등록</a></li>
 						</c:if>
-					<li class="nav-item"><a class="nav-link" href="/miniproject/imageboard/imageboardList.do?pg=1">이미지게시판</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="/miniproject/imageboard/imageboardList.do?pg=1">이미지게시판</a></li> -->
 				</c:if>
 				<li class="nav-item"><a class="nav-link" href="/communicationWebProject/board/boardList.do?pg=1">게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/communicationWebProject/main/location.do">찾아오는길</a></li>
 				
 			</ul>
 			<ul class="navbar-nav my-2 my-lg-0">
