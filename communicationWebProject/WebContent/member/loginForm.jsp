@@ -51,9 +51,7 @@ $(document).ready(function(){
 						$('#id').focus();
 						
 					}else{
-						if($('#autoLogin').val() == '1'){ //체크박스가 체크 되었다면 쿠키 생성
-							$.cookie('id', 'autoLogin'); 
-						}
+						
 						//alert($.cookie('id'));
 						
 						location.reload();

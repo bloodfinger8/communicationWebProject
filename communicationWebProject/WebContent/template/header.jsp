@@ -24,7 +24,6 @@
 				</c:if>
 				<li class="nav-item"><a class="nav-link" href="/communicationWebProject/board/boardList.do?pg=1">게시판</a></li>
 				<li class="nav-item"><a class="nav-link" href="/communicationWebProject/main/location.do">찾아오는길</a></li>
-				
 			</ul>
 			<ul class="navbar-nav my-2 my-lg-0">
 				<c:if test="${memId == null}">
@@ -60,11 +59,12 @@
   </div>
 </div>
 
+
+
 <script type="text/javascript">
 $(document).ready(function(){
- 	/* if($.cookie('id') != "undefined"){
-		$('.jqueryCookie').val('in');
-	} */ 
+	
+	
 });
 
 $('.close').click(function(){ //종료버튼을 눌렀을때

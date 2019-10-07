@@ -5,10 +5,6 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	alert($.cookie('id'));
-	/* if($.cookie('id') != "undefined"){
-		$.removeCookie('id');
-	} */
 	
 	$(location).attr('href', "http://localhost:8080/communicationWebProject/main/main.do"); 
 });

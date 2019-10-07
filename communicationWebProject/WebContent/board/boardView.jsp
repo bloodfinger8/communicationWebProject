@@ -52,7 +52,7 @@ pre {
 	<div id="registDiv">
 		<div id="data_boardreply">
 			<c:forEach items="${list }" var="list" varStatus="i">
-				<div style="border:1px solid blue;">
+				<div>
 				${list.id} <div id="divContent_modifyReply${i.count}">${list.logtime} <br>
 				${list.content}</div>
 				<c:if test="${memId == list.id}">
@@ -61,10 +61,11 @@ pre {
 					<div class="modifyReply${i.count}"></div>
 				</c:if>
 				</div>
+				<hr>
 			</c:forEach>
 		</div>
 		<!-- 내용이 추가 되는 부분 -->
-		<div style='border:1px solid red;' id="angel"></div>
+		<div id="angel"></div>
 	</div>
 	
 	<input type="hidden" name="pseq" value="${boardDTO.seq}">
