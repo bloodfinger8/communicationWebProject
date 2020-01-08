@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <div class="header-title">
-	<h3>모임을 갖자</h3>
+	<h3 style="padding-top: 20px;color: white;">개발자 커뮤니티</h3>
 </div>
 <div class="header-menubar">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">

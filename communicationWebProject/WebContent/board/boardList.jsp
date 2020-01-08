@@ -54,15 +54,15 @@
 	</c:if>
 	
 
-<form name="" method="post" action="/communicationWebProject/board/boardSearch.do">	
-	<div style=" padding-top:30px; width: 700px; text-align:center; ">
+<form name="boardListForm" method="post" action="/communicationWebProject/board/boardSearch.do">	
+	<div style=" text-align:center; ">
 	<input type="hidden" name="pg" value="1">
 	<select name="searchOption" id="searchOption">
 	    <option value="all">제목+내용</option>
 	    <option value="subject">제목</option>
 	    <option value="id">글작성자</option>
 	</select>
-	<input type="text"  name="keyword" value="${keyword }" placeholder="검색어를 입력해주세요">
+	<input type="text"  name="keyword" value="${keyword}" placeholder="검색어를 입력해주세요">
 	<input type="submit" value="검색">
 	</div>
 </form>
