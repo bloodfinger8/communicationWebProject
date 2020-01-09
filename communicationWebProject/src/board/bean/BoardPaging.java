@@ -87,17 +87,17 @@ public class BoardPaging {
 		}
 		
 		if(startPage>pageBlock) {
-			pagingHTML.append("[<a href='#' id='paging' onclick='boardSearch("+(startPage-1)+")'>이전</a>]");
+			pagingHTML.append("<li class='page-item'><a id='paging' class='page-link' href='#' onclick='boardSearch("+(startPage-1)+")'>이전</li>");
 		}
 		for(int i =startPage; i<=endPage; i++) {
 			if(i == currentPage) {
-				pagingHTML.append("[<a href='#' id='currentPaging' onclick='boardSearch.do?pg="+i+"'>"+ i + "</a>]");
+				pagingHTML.append("<li class='page-item'><a id='currentPaging' class='page-link' href='#' onclick='boardSearch.do?pg="+i+"'>"+ i + "</a></li>");
 			}else {
-				pagingHTML.append("[<a href='#' id='paging' onclick='boardSearch("+i+")'>"+ i + "</a>]");
+				pagingHTML.append("<li class='page-item'><a id='paging' class='page-link' href='#' onclick='boardSearch("+i+")'>"+ i + "</a></li>");
 			}
 		}
 		if(endPage < totalP) {
-			pagingHTML.append("[<a href='#' id='paging' onclick='boardSearch("+(endPage+1)+")'>다음</a>]");
+			pagingHTML.append("<li class='page-item'><a id='paging' class='page-link' href='#' onclick='boardSearch("+(endPage+1)+")'>다음</a></li>");
 		}
 	}
 }

@@ -109,7 +109,7 @@ public class ControlServlet extends HttpServlet {
 		System.out.println("category = "+category);
 		
 		CommandProcess commandProcess = (CommandProcess)map.get(category);
-		System.out.println("commandProcess = "+map);
+		System.out.println("commandProcess = "+commandProcess);
 		
 		String view = null;
 		try {

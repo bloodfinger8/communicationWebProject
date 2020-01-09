@@ -14,7 +14,7 @@
             </div>
             <hr/>
 <c:if test="${list != null }">
-<table class="table table-striped" border="1"  width="700" frame="hsides" rules="rows" cellspacing="0" cellpadding="15">
+<table class="table table-striped" border="2" frame="hsides" rules="rows" cellspacing="0" cellpadding="15">
 			<tr>
 				<td>글번호</td>
 				<td>제목</td>

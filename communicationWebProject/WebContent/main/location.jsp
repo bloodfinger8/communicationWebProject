@@ -5,17 +5,19 @@
   <div class="row">
     <div class="col-sm-5">
       <h2>메일 보내기 </h2>
-      <form class="form-horizontal" role="form" method="post" action="index.php">
-		<div class="form-group">
-			<label for="name" class="col-sm-2 control-label">Name</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
-			</div>
-		</div>
+      
+      <form class="form-horizontal" role="form" method="post" action="/communicationWebProject/main/sendMail.do">
+		
 		<div class="form-group">
 			<label for="email" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-10">
 				<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">subject</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="subject" name="subject" placeholder="subject" value="">
 			</div>
 		</div>
 		<div class="form-group">
@@ -30,6 +32,7 @@
 			</div>
 		</div>
 	</form>
+	
 	</div>
 
     <div class="col-sm-6">
