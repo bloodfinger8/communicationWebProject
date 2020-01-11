@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:forEach items="${list }" var="list" varStatus="i">
-		<div style="border:1px solid blue;">
+		<div >
 		${list.id} <div id="divContent_modifyReply${i.count}">${list.logtime} <br>
 		${list.content}</div>
 		<c:if test="${logId == list.id}">

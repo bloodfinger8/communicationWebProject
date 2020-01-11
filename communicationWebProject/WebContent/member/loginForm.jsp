@@ -117,7 +117,7 @@ function keepLogin(){
 					dataType : "text",
 					success : function(data){
 						//카카오 로그인이 처음이라면
-						if(data == "false"){
+						if(data.trim() === "no"){
 							$.ajax({
 			            		url : '/communicationWebProject/kakao/kakaoLogin.do',
 								type : 'post',

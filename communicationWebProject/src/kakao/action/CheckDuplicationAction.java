@@ -17,19 +17,20 @@ public class CheckDuplicationAction  implements CommandProcess{
 		System.out.println("제발루!!!!!!!!!!!!!!!!"+id +" " + name);
 		MemberDAO memberDAO =MemberDAO.getInstance();
 		boolean su = memberDAO.isExistId(id);
-		
+		System.out.println("su :" + su);
 		if(su) {
 			//아이디가 존재한다면 세션을 만들어 줘라
 			HttpSession session = request.getSession();
 			session.setAttribute("memName", name);
 			session.setAttribute("memId", id);
-			return "true";
+			
+			request.setAttribute("result", "ok");
 		}else {
 			//아이디가 없다면
-			return "false";
+			request.setAttribute("result", "no");
 		}
 		
-		
+		return "/kakao/checkDuplication.jsp";
 		
 	}
 	
